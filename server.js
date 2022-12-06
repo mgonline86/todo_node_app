@@ -1,11 +1,14 @@
 // Setup Server
 const express = require('express')
+var bodyParser = require('body-parser')
 // Setup Database
 const { PrismaClient } = require('@prisma/client')
 
 const prisma = new PrismaClient()
 const app = express()
 const port = process.env.PORT || 5000
+
+app.use(express.json());
 
 // Routes Import
 const todos = require('./routes/todos')

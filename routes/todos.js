@@ -13,16 +13,25 @@ router
 })
 // Add new to do for specific user
 .post('/', async(req, res) => {
-    const { userId, title, content } = req.body
     console.log(req.body)
-    const todo = await prisma.todo.create({
-        data: {
-            title,
-            content,
-            author: userId,
+    // res.json({sucess:true})
+    const { userId, title, content } = req.body
+      const user = await prisma.user.update({
+        where: {
+          id: userId,
         },
-    })
-    res.status(201).json(todo)
+        data: {
+            todos: {
+            createMany: {
+              data: [{
+                title,
+                content,
+            }],
+            },
+          },
+        },
+      })
+    res.status(201).json(user)
 })
 
 // Get to do information for specific user
