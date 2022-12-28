@@ -22,12 +22,35 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 
 
+<hr>
+<hr>
+
 ## CURRENT TODO ROUTES
 - ### GET ALL TODOS
     #### **[GET]** /api/todo
+    <hr>
 - ### CREATE A NEW TODO
     #### **[POST]** /api/todo
     - Body params:
         - title [string] (*required*)
         - isDone [boolean] (*optional*)
         - todoBy [reference objectID] (*optional*)
+    <hr>
+- ### GET A TODO BY ID
+    #### **[GET]** /api/todo/[id]
+    - path params:
+        - id [string] (*required*)
+    <hr>
+- ### UPDATE A TODO BY ID
+    #### **[PUT]** /api/todo/[id]
+    - path params:
+        - id [string] (*required*)
+    - Body params:
+        - title [string] (*optional*)
+        - isDone [boolean] (*optional*)
+        - todoBy [reference objectID] (*optional*)
+    <hr>
+- ### DELETE A TODO BY ID
+    #### **[DELETE]** /api/todo/[id]
+    - path params:
+        - id [string] (*required*)

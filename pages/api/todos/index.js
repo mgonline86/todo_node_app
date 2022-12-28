@@ -15,7 +15,6 @@ export default async function todoHandler(req, res) {
                 
             case "post":
                 let payload = req.body;
-                console.log(payload)
                 const newTodo = await Todo.create(payload)
                 return res.status(201).json(newTodo)
         
